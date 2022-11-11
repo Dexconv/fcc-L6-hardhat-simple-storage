@@ -1,0 +1,33 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add --dev hardhat
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/usr/local/go/bin:/usr/local/go/bin:/usr/local/go/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  19.0.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
+
+npm manifest: 
+  {
+    "name": "fcc-hardhat-simple-storage-l6",
+    "version": "1.0.0",
+    "repository": "https://github.com/Dexconv/fcc-hardhat-simple-storage-L6.git",
+    "author": "“dexconv” <ali.16148@gmail.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
