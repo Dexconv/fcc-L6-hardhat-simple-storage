@@ -1,0 +1,25 @@
+const { ethers } = require("hardhat")
+const { expect, assert } = require("chai")
+
+describe("SimpleStorage", async function () {
+    let ssfac, ss
+    beforeEach(async function () {
+        ssfac = await ethers.getContractFactory("SimpleStorage")
+        ss = await ssfac.deploy()
+    })
+    //can use expect and assert
+    it("should start with favorite number 0", async function () {
+        const currentVal = await ss.retrieve()
+        const expectedVal = "0"
+
+        assert.equal(currentVal.toString(), expectedVal)
+    })
+    it("should update when store is called", async function () {
+        const expectedVal = "22"
+        const txResp = await ss.store(expectedVal)
+        await txResp.wait(1)
+        const currentVal = await ss.retrieve()
+        //assert.equal(currentVal.toString(), expectedVal)
+        expect(currentVal.toString()).to.equal(expectedVal)
+    })
+})
