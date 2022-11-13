@@ -22,4 +22,21 @@ describe("SimpleStorage", async function () {
         //assert.equal(currentVal.toString(), expectedVal)
         expect(currentVal.toString()).to.equal(expectedVal)
     })
+    it("should add to person array when called", async function () {
+        const expectedName = "ali"
+        const expectedVal = "234"
+        const txrep = await ss.addPerson(expectedName, expectedVal)
+        await txrep.wait(1)
+        const person = await ss.people(0)
+        assert.equal(person[0], expectedVal)
+        assert.equal(person[1], expectedName)
+    })
+    it("should add to nameToFaveNum map when called", async function () {
+        const expectedName = "ali"
+        const expectedVal = "234"
+        const txrep = await ss.addPerson(expectedName, expectedVal)
+        await txrep.wait(1)
+        const currentVal = await ss.nameToFaveNum(expectedName)
+        assert.equal(currentVal.toString(), expectedVal)
+    })
 })
