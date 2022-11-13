@@ -1,11 +1,8 @@
-require("@nomicfoundation/hardhat-toolbox")
-require("@nomiclabs/hardhat-waffle")
-require("dotenv").config()
-require("./tasks/block-number")
-//redundant when using hardhat-toolbox:
-//require("@nomiclabs/hardhat-etherscan")
-//require("hardhat-gas-reporter")
-//require("solidity-coverage")
+import "@nomicfoundation/hardhat-toolbox"
+import "@nomiclabs/hardhat-waffle"
+import "dotenv/config"
+import "./tasks/block-number"
+import "@typechain/hardhat"
 
 /** @type import('hardhat/config').HardhatUserConfig */
 const GEORLI_RPC_URL =

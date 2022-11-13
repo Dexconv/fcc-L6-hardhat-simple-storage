@@ -1,10 +1,12 @@
-const { ethers } = require("hardhat")
-const { expect, assert } = require("chai")
+import { ethers } from "hardhat"
+import { expect, assert } from "chai"
+import {SimpleStorage, SimpleStorage__factory} from "../typechain-types"
 
 describe("SimpleStorage", async function () {
-    let ssfac, ss
+    let ssfac: SimpleStorage__factory
+    let ss : SimpleStorage
     beforeEach(async function () {
-        ssfac = await ethers.getContractFactory("SimpleStorage")
+        ssfac = await (ethers.getContractFactory("SimpleStorage")) as SimpleStorage__factory
         ss = await ssfac.deploy()
     })
     //can use expect and assert
@@ -28,7 +30,7 @@ describe("SimpleStorage", async function () {
         const txrep = await ss.addPerson(expectedName, expectedVal)
         await txrep.wait(1)
         const person = await ss.people(0)
-        assert.equal(person[0], expectedVal)
+        assert.equal(person[0].toString(), expectedVal)
         assert.equal(person[1], expectedName)
     })
     it("should add to nameToFaveNum map when called", async function () {
